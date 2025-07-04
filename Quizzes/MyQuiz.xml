@@ -1,4 +1,4 @@
-<QuizML name ="Sample Quiz">
+<QuizML name ="My First Sample Quiz">
     <Description>This is a sample quiz.</Description>
     <Question type="multichoice" points="10">
         <QuestionText answer="2">What is 2+2?</QuestionText>

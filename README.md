@@ -1,4 +1,4 @@
-echo "# pyquiz
+# pyquiz
 
 This is a basic TUI quiz application that uses XML for the quizzes.
 
@@ -14,4 +14,4 @@ pip install -r requirements.txt
 ## Usage
 \`\`\`bash
 python pyquiz.py
-\`\`\`" > README.md
+\`\`\`
