@@ -1,10 +1,8 @@
 # QuizParser builds a quiz from a source file
 
 import xml.sax
-from pyquiz import *
 from enum import Enum, unique
-
-from pyquiz import QuestionTF, Quiz
+from models import Quiz, QuestionTF, QuestionMC, Answer
 
 
 @unique
