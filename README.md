@@ -7,11 +7,11 @@ I am following this LinkedIn Learning class: https://www.linkedin.com/learning/p
 Here is the repo associated with that class: https://github.com/LinkedInLearning/python-project-build-a-quiz-application-2476116
 
 ## Installation
-\`\`\`bash
+```bash
 pip install -r requirements.txt
-\`\`\`
+```
 
 ## Usage
-\`\`\`bash
+```bash
 python pyquiz.py
-\`\`\`
+```
