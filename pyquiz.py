@@ -36,7 +36,7 @@ class QuizApp:
 
     def goodbye(self):
         print("-------------------------------")
-        print(f"Thank you for playing PyQUiz, {self.username}!")
+        print(f"Thank you for playing PyQuiz, {self.username}!")
         print("-------------------------------")
 
     def menu(self):
@@ -60,6 +60,7 @@ class QuizApp:
                 print("\nAvailable quizzes Are: ")
                 self.qm.list_quiz()
                 print("-------------------------------\n")
+                self.menu_header()
                 continue
             elif selection[0] == 'T':
                 try:
@@ -71,6 +72,7 @@ class QuizApp:
 
                 except:
                     self.menu_error()
+                    continue
             else:
                 self.menu_error()
 
