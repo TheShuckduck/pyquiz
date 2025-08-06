@@ -35,9 +35,9 @@ class QuizApp:
         print("Please enter a valid selection:")
 
     def goodbye(self):
-        print("-------------------------------")
+        print("-----------------------------------------")
         print(f"Thank you for playing PyQuiz, {self.username}!")
-        print("-------------------------------")
+        print("-----------------------------------------")
 
     def menu(self):
         self.menu_header()
@@ -67,13 +67,14 @@ class QuizApp:
                     quiznum = int(input("Enter quiz number: "))
                     print(f"You have selected {quiznum}.")
 
+                    # Start the quiz and get the results back
                     self.qm.take_quiz(quiznum, self.username)
                     self.qm.print_results()
 
                 except:
                     self.menu_error()
-                    continue
             else:
+                # This happens if the user does not make a valid selection
                 self.menu_error()
 
     # This is the entry point to the program

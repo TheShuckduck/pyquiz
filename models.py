@@ -64,7 +64,9 @@ class QuestionTF(Question):
                 print("Sorry, that is not a valid response. Try again.")
                 continue
 
-            if response[0] == self.correct_answer:
+            # Fix: Normalize the correct_answer for comparison
+            correct_answer_normalized = self.correct_answer.lower()[0]  # Get first char of correct answer
+            if response[0] == correct_answer_normalized:
                 self.is_correct = True
 
             break
