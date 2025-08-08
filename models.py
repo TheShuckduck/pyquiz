@@ -1,5 +1,7 @@
 # models class to contain the various data models for this program.
 
+import datetime
+
 class Quiz:
     def __init__(self):
         self.name = ""
@@ -17,9 +19,12 @@ class Quiz:
         print(f"TOTAL POINTS: {self.total_points}")
         print("*************************************************\n")
 
-    def print_results(self):
+    def print_results(self, quiztaker):
         print("\n\n***********************************************")
-
+        print(f"RESULTS for {quiztaker}")
+        print(f"Date: {datetime.datetime.today()}")
+        print(f"QUESTIONS: {self.correct_count} out of {len(self.questions)} correct ")
+        print(f"SCORE: {self.score} points out of possible {self.total_points}")
         print("*************************************************\n")
 
     def take_quiz(self):

@@ -22,6 +22,7 @@ class Quiz:
         print("********************************************\n")
 
     def print_results(self, quiztaker):
+        print(f"DEBUG: Quiz.print_results called with self={self} and quiztaker={quiztaker}")
         print("********************************************")
         print(f"RESULTS for {quiztaker}")
         print(f"Date: {datetime.datetime.today()}")

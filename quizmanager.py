@@ -36,6 +36,9 @@ class QuizManager:
         self.results = self.the_quiz.take_quiz()
 
     def print_results(self):
+        print(f"DEBUG: QuizManager.print_results called")
+        print(f"DEBUG: self.the_quiz type = {type(self.the_quiz)}")
+        print(f"DEBUG: About to call self.the_quiz.print_results({self.quiztaker})")
         self.the_quiz.print_results(self.quiztaker)  # Pass the username to Quiz.print_results()
 
     # save the results of the latest quiz to a file

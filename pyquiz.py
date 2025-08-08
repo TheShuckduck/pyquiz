@@ -68,11 +68,24 @@ class QuizApp:
                     print(f"You have selected {quiznum}.")
 
                     # Start the quiz and get the results back
+                    print(f"DEBUG: About to call take_quiz with quiznum={quiznum}, username={self.username}")
                     self.qm.take_quiz(quiznum, self.username)
+
+                    print(f"DEBUG: About to call print_results")
+                    print(f"DEBUG: self.qm.quiztaker = {getattr(self.qm, 'quiztaker', 'NOT SET')}")
                     self.qm.print_results()
 
-                except:
+                    print()
+                    self.menu_header()
+                    continue
+
+                except Exception as e:
+                    print(f"DEBUG: Exception occurred: {e}")
+                    print(f"DEBUG: Exception type: {type(e)}")
+                    import traceback
+                    traceback.print_exc() # Should show full stack trace
                     self.menu_error()
+                    continue
             else:
                 # This happens if the user does not make a valid selection
                 self.menu_error()
