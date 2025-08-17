@@ -14,11 +14,13 @@ class QuizParserState(Enum):
     PARSE_QUESTION_TEXT = 4
     PARSE_ANSWER = 5
 
+
 class QuizParser(xml.sax.ContentHandler):
     """
     The QuizParser class loads a specific quiz file, parses it, and returns a fully-built
     Quiz object that can be presented to the user.
     """
+
     def __init__(self):
         self.new_quiz = Quiz()
         self._parse_state = QuizParserState.IDLE
@@ -29,10 +31,10 @@ class QuizParser(xml.sax.ContentHandler):
         # load the file contents
         quiztext = ""
         with open(quizpath, "r") as quizfile:
-            if quizfile.mode == 'r':
+            if quizfile.mode == "r":
                 quiztext = quizfile.read()
 
-        #TODO: parse the file
+        # TODO: parse the file
         xml.sax.parseString(quiztext, self)
 
         # return the finished quiz
@@ -55,11 +57,11 @@ class QuizParser(xml.sax.ContentHandler):
         elif tagname == "QuestionText":
             self._parse_state = QuizParserState.PARSE_QUESTION_TEXT
             self._current_question.correct_answer = attrs["answer"]
-#            self._current_question.text = ""   #Initialize the text field
+        #            self._current_question.text = ""   #Initialize the text field
         elif tagname == "Answer":
             self._current_answer = Answer()
             self._current_answer.name = attrs["name"]
-#            self._current_answer.text = ""     #Initialize the text field
+            #            self._current_answer.text = ""     #Initialize the text field
             self._parse_state = QuizParserState.PARSE_ANSWER
 
     def endElement(self, tagname):

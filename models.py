@@ -2,6 +2,7 @@
 
 import datetime
 
+
 class Quiz:
     def __init__(self):
         self.name = ""
@@ -36,12 +37,13 @@ class Quiz:
         self.print_header()
         for q in self.questions:
             q.ask()
-            if (q.is_correct):
+            if q.is_correct:
                 self.correct_count += 1
                 self.score += q.points
 
         print("----------------------------------------------------\n")
-        return(self.score, self.correct_count, self.total_points)
+        return (self.score, self.correct_count, self.total_points)
+
 
 class Question:
     def __init__(self):
@@ -56,7 +58,7 @@ class QuestionTF(Question):
         super().__init__()
 
     def ask(self):
-        while (True):
+        while True:
             print(f"(T)rue or (F)alse: {self.text}")
             response = input("? ")
 
@@ -70,11 +72,14 @@ class QuestionTF(Question):
                 continue
 
             # Fix: Normalize the correct_answer for comparison
-            correct_answer_normalized = self.correct_answer.lower()[0]  # Get first char of correct answer
+            correct_answer_normalized = self.correct_answer.lower()[
+                0
+            ]  # Get first char of correct answer
             if response[0] == correct_answer_normalized:
                 self.is_correct = True
 
             break
+
 
 class QuestionMC(Question):
     def __init__(self):
@@ -82,7 +87,7 @@ class QuestionMC(Question):
         self.answers = []
 
     def ask(self):
-        while (True):
+        while True:
             print(self.text)
             for a in self.answers:
                 print(f"({a.name}) {a.text}")
@@ -97,8 +102,8 @@ class QuestionMC(Question):
                 self.is_correct = True
             break
 
+
 class Answer:
     def __init__(self):
         self.text = ""
         self.name = ""
-

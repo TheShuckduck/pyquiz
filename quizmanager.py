@@ -5,6 +5,7 @@ import os
 import quizparser
 import datetime
 
+
 class QuizManager:
     def __init__(self, quizfolder):
         self.quizfolder = quizfolder
@@ -13,7 +14,7 @@ class QuizManager:
         self.results = None
         self.quiztaker = ""
 
-        if (os.path.exists(quizfolder) == False):
+        if os.path.exists(quizfolder) == False:
             raise FileNotFoundError("Quiz folder doesn't exist!")
 
         self._build_quiz_list()
@@ -24,10 +25,10 @@ class QuizManager:
             filepath = os.path.join(self.quizfolder, f)
             if os.path.isfile(filepath):
                 parser = quizparser.QuizParser()
-                self.quizzes[i+1] = parser.parse_quiz(filepath)
+                self.quizzes[i + 1] = parser.parse_quiz(filepath)
 
     def list_quiz(self):
-        for k,v in self.quizzes.items():
+        for k, v in self.quizzes.items():
             print(f"({k}): {v.name}")
 
     def take_quiz(self, quizid, username):
@@ -39,7 +40,9 @@ class QuizManager:
         print(f"DEBUG: QuizManager.print_results called")
         print(f"DEBUG: self.the_quiz type = {type(self.the_quiz)}")
         print(f"DEBUG: About to call self.the_quiz.print_results({self.quiztaker})")
-        self.the_quiz.print_results(self.quiztaker)  # Pass the username to Quiz.print_results()
+        self.the_quiz.print_results(
+            self.quiztaker
+        )  # Pass the username to Quiz.print_results()
 
     # save the results of the latest quiz to a file
     # the file is named using the current date as

@@ -2,6 +2,7 @@
 # pyquiz.py -- Main starting point of the program.
 from quizmanager import QuizManager
 
+
 class QuizApp:
     QUIZ_FOLDER = "Quizzes"
 
@@ -42,7 +43,7 @@ class QuizApp:
     def menu(self):
         self.menu_header()
         selection = ""
-        while(True):
+        while True:
             selection = input("Selection? ")
 
             if len(selection) == 0:
@@ -50,29 +51,33 @@ class QuizApp:
                 continue
 
             selection = selection.capitalize()
-            if selection[0] == 'E':
+            if selection[0] == "E":
                 self.goodbye()
                 break
-            elif selection[0] == 'M':
+            elif selection[0] == "M":
                 self.menu_header()
                 continue
-            elif selection[0] == 'L':
+            elif selection[0] == "L":
                 print("\nAvailable quizzes Are: ")
                 self.qm.list_quiz()
                 print("-------------------------------\n")
                 self.menu_header()
                 continue
-            elif selection[0] == 'T':
+            elif selection[0] == "T":
                 try:
                     quiznum = int(input("Enter quiz number: "))
                     print(f"You have selected {quiznum}.")
 
                     # Start the quiz and get the results back
-                    print(f"DEBUG: About to call take_quiz with quiznum={quiznum}, username={self.username}")
+                    print(
+                        f"DEBUG: About to call take_quiz with quiznum={quiznum}, username={self.username}"
+                    )
                     self.qm.take_quiz(quiznum, self.username)
 
                     print(f"DEBUG: About to call print_results")
-                    print(f"DEBUG: self.qm.quiztaker = {getattr(self.qm, 'quiztaker', 'NOT SET')}")
+                    print(
+                        f"DEBUG: self.qm.quiztaker = {getattr(self.qm, 'quiztaker', 'NOT SET')}"
+                    )
                     self.qm.print_results()
 
                     print()
@@ -83,7 +88,8 @@ class QuizApp:
                     print(f"DEBUG: Exception occurred: {e}")
                     print(f"DEBUG: Exception type: {type(e)}")
                     import traceback
-                    traceback.print_exc() # Should show full stack trace
+
+                    traceback.print_exc()  # Should show full stack trace
                     self.menu_error()
                     continue
             else:
@@ -96,6 +102,7 @@ class QuizApp:
         self.startup()
         # Start the main program menu and run until told to quit
         self.menu()
+
 
 if __name__ == "__main__":
     app = QuizApp()
